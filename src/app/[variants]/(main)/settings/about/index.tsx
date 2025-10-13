@@ -54,11 +54,6 @@ const Page = memo<{ mobile?: boolean }>(({ mobile }) => {
                 label: t('mail.support'),
                 value: 'support',
               },
-              {
-                href: mailTo(BRANDING_EMAIL.business),
-                label: t('mail.business'),
-                value: 'business',
-              },
             ]}
           />
           <Divider style={{ marginBlock: 0 }} />

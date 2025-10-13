@@ -32,7 +32,7 @@ const Footer = memo<PropsWithChildren>(() => {
 
   const { hideGitHub } = useServerConfigStore(featureFlagsSelectors);
 
-  return true ? null : (
+  return hideGitHub ? null : (
     <>
       <Flexbox className={LayoutSettingsFooterClassName} justify={'flex-end'}>
         <Center

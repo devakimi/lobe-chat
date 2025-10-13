@@ -97,7 +97,7 @@ export const DEFAULT_FEATURE_FLAGS: IFeatureFlags = {
 
   market: true,
   speech_to_text: true,
-  changelog: true,
+  changelog: false,
 
   // the flags below can only be used with commercial license
   // if you want to use it in the commercial usage

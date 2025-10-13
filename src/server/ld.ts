@@ -87,7 +87,7 @@ export class Ld {
     return {
       '@id': this.getId(OFFICIAL_URL, '#organization'),
       '@type': 'Organization',
-      'alternateName': 'LobeChat',
+      'alternateName': 'ImoogleAI',
       'contactPoint': {
         '@type': 'ContactPoint',
         'contactType': 'customer support',
@@ -104,8 +104,8 @@ export class Ld {
         'url': urlJoin(OFFICIAL_SITE, '/icon-512x512.png'),
         'width': 512,
       },
-      'name': 'LobeHub',
-      'sameAs': [SOCIAL_URL.x, SOCIAL_URL.github, SOCIAL_URL.medium, SOCIAL_URL.youtube],
+      'name': 'Imoogle',
+      'sameAs': [],
       'url': OFFICIAL_SITE,
     };
   }

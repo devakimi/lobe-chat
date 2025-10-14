@@ -5,7 +5,8 @@
 export const LOBE_CHAT_CLOUD = 'ImoogleAI Cloud';
 
 export const BRANDING_NAME = 'ImoogleAI';
-export const BRANDING_LOGO_URL = '';
+// Set your brand logo URL (PNG/SVG/JPG). Shown across the UI.
+export const BRANDING_LOGO_URL = 'https://imoogleai.xyz/icon-512x512.png';
 
 export const ORG_NAME = 'Imoogle';
 

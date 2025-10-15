@@ -203,7 +203,7 @@ const Header = memo<{ inModal?: boolean; mobile?: boolean }>(({ mobile: isMobile
               {installCount}
             </Flexbox>
           )}
-          {Boolean(github?.stars) && (
+          {Boolean(github?.stars) && !mobile && (
             <Flexbox align={'center'} gap={6} horizontal>
               <Icon icon={StarIcon} size={14} />
               {github?.stars}

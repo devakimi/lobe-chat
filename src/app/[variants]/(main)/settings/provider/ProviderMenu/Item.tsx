@@ -35,34 +35,34 @@ export const useStyles = createStyles(({ css, token }) => ({
   `,
 }));
 
-const ProviderItem = memo<AiProviderListItem & {
-  onClick: (id: string) => void
-}>(
-  ({ id: _id, name, source, enabled, logo, onClick = () => {} }) => {
+interface ProviderItemProps extends AiProviderListItem {
+  onClick: (id: string) => void;
+}
+
+const ProviderItem = memo<ProviderItemProps>(
+  ({ id, name, source, enabled, logo, onClick = () => {} }) => {
     const { styles, cx } = useStyles();
     const searchParams = useSearchParams();
-
     const activeKey = searchParams.get('provider');
 
     const isCustom = source === AiProviderSourceEnum.Custom;
+
     return (
       <div
-        className={cx(styles.container, activeKey === _id && styles.active)}
-        onClick={() => {
-          onClick(_id);
-        }}
+        className={cx(styles.container, activeKey === id && styles.active)}
+        onClick={() => onClick(id)}
       >
         <Flexbox gap={8} horizontal>
           {isCustom && logo ? (
             <Avatar
-              alt={name || _id}
+              alt={name || id}
               avatar={logo}
-              shape={'square'}
+              shape="square"
               size={24}
               style={{ borderRadius: 6 }}
             />
           ) : (
-            <ProviderIcon provider={_id} size={24} style={{ borderRadius: 6 }} type={'avatar'} />
+            <ProviderIcon provider={id} size={24} style={{ borderRadius: 6 }} type="avatar" />
           )}
           {name}
         </Flexbox>
@@ -73,11 +73,10 @@ const ProviderItem = memo<AiProviderListItem & {
             </Center>
           )}
           {/* cloud slot */}
-
-          {/* cloud slot */}
         </Flexbox>
       </div>
     );
   },
 );
+
 export default ProviderItem;

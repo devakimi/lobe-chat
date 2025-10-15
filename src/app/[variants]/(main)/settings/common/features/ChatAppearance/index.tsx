@@ -18,6 +18,7 @@ import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { FORM_STYLE } from '@/const/layoutTokens';
+import { BRANDING_NAME } from '@/const/branding';
 import { useUserStore } from '@/store/user';
 import { settingsSelectors } from '@/store/user/selectors';
 
@@ -127,7 +128,7 @@ const ChatAppearance = memo(() => {
         children: (
           <Select
             options={highlighterThemes.map((item) => ({
-              label: item.displayName,
+              label: item.id === 'lobe-theme' ? BRANDING_NAME : item.displayName,
               value: item.id,
             }))}
           />
@@ -143,7 +144,7 @@ const ChatAppearance = memo(() => {
         children: (
           <Select
             options={mermaidThemes.map((item) => ({
-              label: item.displayName,
+              label: item.id === 'lobe-theme' ? BRANDING_NAME : item.displayName,
               value: item.id,
             }))}
           />

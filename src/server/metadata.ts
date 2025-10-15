@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import qs from 'query-string';
 
-import { BRANDING_NAME } from '@/const/branding';
+import { BRANDING_NAME, ORG_NAME } from '@/const/branding';
+import { isCustomORG } from '@/const/version';
 import { DEFAULT_LANG } from '@/const/locale';
 import { OG_URL } from '@/const/url';
 import { Locales, locales } from '@/locales/resources';
@@ -10,7 +11,7 @@ import { formatDescLength, formatTitleLength } from '@/utils/genOG';
 
 export class Meta {
   public generate({
-    description = 'LobeChat offers you the best ChatGPT, OLLaMA, Gemini, Claude WebUI user experience',
+    description = `${BRANDING_NAME} offers you the best ChatGPT, OLLaMA, Gemini, Claude WebUI user experience`,
     title,
     image = OG_URL,
     url,
@@ -90,7 +91,7 @@ export class Meta {
       card: 'summary_large_image',
       description,
       images: [image],
-      site: '@lobehub',
+      site: isCustomORG ? `@${ORG_NAME}` : '@lobehub',
       title,
       url,
     };
@@ -122,7 +123,7 @@ export class Meta {
         },
       ],
       locale,
-      siteName: 'LobeChat',
+      siteName: BRANDING_NAME,
       title,
       type,
       url,

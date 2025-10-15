@@ -1,6 +1,7 @@
 import { Icon } from '@lobehub/ui';
 import { DownloadIcon, StarIcon } from 'lucide-react';
 import { memo } from 'react';
+import { useResponsive } from 'antd-style';
 import { Flexbox } from 'react-layout-kit';
 
 import { DiscoverMcpItem } from '@/types/discover';
@@ -12,6 +13,7 @@ interface MetaInfoProps {
 }
 
 const MetaInfo = memo<MetaInfoProps>(({ stars, installCount, className }) => {
+  const { mobile } = useResponsive();
   return (
     <Flexbox align={'center'} className={className} gap={8} horizontal>
       {Boolean(installCount) && (
@@ -20,7 +22,7 @@ const MetaInfo = memo<MetaInfoProps>(({ stars, installCount, className }) => {
           {installCount}
         </Flexbox>
       )}
-      {Boolean(stars) && (
+      {Boolean(stars) && !mobile && (
         <Flexbox align={'center'} gap={4} horizontal>
           <Icon icon={StarIcon} size={14} />
           {stars}

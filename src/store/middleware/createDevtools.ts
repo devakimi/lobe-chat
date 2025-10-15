@@ -17,7 +17,7 @@ export const createDevtools =
       }
     }
 
-    return optionalDevtools(showDevtools)(initializer, {
+    return optionalDevtools(showDevtools)(initializer as any, {
       name: `LobeChat_${name}` + (isDev ? '_DEV' : ''),
-    });
+    }) as any;
   };

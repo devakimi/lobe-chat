@@ -43,28 +43,26 @@ const ProviderItem = memo<ProviderItemProps>(
   ({ id, name, source, enabled, logo, onClick = () => {} }) => {
     const { styles, cx } = useStyles();
     const searchParams = useSearchParams();
-
     const activeKey = searchParams.get('provider');
 
     const isCustom = source === AiProviderSourceEnum.Custom;
+
     return (
       <div
         className={cx(styles.container, activeKey === id && styles.active)}
-        onClick={() => {
-          onClick(id);
-        }}
+        onClick={() => onClick(id)}
       >
         <Flexbox gap={8} horizontal>
           {isCustom && logo ? (
             <Avatar
               alt={name || id}
               avatar={logo}
-              shape={'square'}
+              shape="square"
               size={24}
               style={{ borderRadius: 6 }}
             />
           ) : (
-            <ProviderIcon provider={id} size={24} style={{ borderRadius: 6 }} type={'avatar'} />
+            <ProviderIcon provider={id} size={24} style={{ borderRadius: 6 }} type="avatar" />
           )}
           {name}
         </Flexbox>
@@ -75,11 +73,10 @@ const ProviderItem = memo<ProviderItemProps>(
             </Center>
           )}
           {/* cloud slot */}
-
-          {/* cloud slot */}
         </Flexbox>
       </div>
     );
   },
 );
+
 export default ProviderItem;

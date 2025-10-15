@@ -38,7 +38,7 @@ export const useStyles = createStyles(({ css, token }) => ({
 const ProviderItem = memo<AiProviderListItem & {
   onClick: (id: string) => void
 }>(
-  ({ id, name, source, enabled, logo, onClick = () => {} }) => {
+  ({ id: _id, name, source, enabled, logo, onClick = () => {} }) => {
     const { styles, cx } = useStyles();
     const searchParams = useSearchParams();
 
@@ -47,22 +47,22 @@ const ProviderItem = memo<AiProviderListItem & {
     const isCustom = source === AiProviderSourceEnum.Custom;
     return (
       <div
-        className={cx(styles.container, activeKey === id && styles.active)}
+        className={cx(styles.container, activeKey === _id && styles.active)}
         onClick={() => {
-          onClick(id);
+          onClick(_id);
         }}
       >
         <Flexbox gap={8} horizontal>
           {isCustom && logo ? (
             <Avatar
-              alt={name || id}
+              alt={name || _id}
               avatar={logo}
               shape={'square'}
               size={24}
               style={{ borderRadius: 6 }}
             />
           ) : (
-            <ProviderIcon provider={id} size={24} style={{ borderRadius: 6 }} type={'avatar'} />
+            <ProviderIcon provider={_id} size={24} style={{ borderRadius: 6 }} type={'avatar'} />
           )}
           {name}
         </Flexbox>

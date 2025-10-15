@@ -18,8 +18,9 @@ const StoreUpdater = memo<StoreUpdaterProps>(
     const storeApi = useStoreApi();
     const useStoreUpdater = createStoreUpdater(storeApi);
 
-    useStoreUpdater('meta', meta);
-    useStoreUpdater('config', config);
+    // Only update when values are present to satisfy non-optional store fields
+    if (meta) useStoreUpdater('meta', meta);
+    if (config) useStoreUpdater('config', config);
     useStoreUpdater('onConfigChange', onConfigChange);
     useStoreUpdater('onMetaChange', onMetaChange);
     useStoreUpdater('loading', loading);

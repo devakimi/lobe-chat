@@ -13,7 +13,8 @@ const ThreadHydration = memo(() => {
 
   // two-way bindings the topic params to chat store
   const [portalThread, setThread] = useQueryState('portalThread');
-  useStoreUpdater('portalThreadId', portalThread!);
+  // Coerce null from URL param to undefined for optional store fields
+  useStoreUpdater('portalThreadId', portalThread ?? undefined);
 
   useLayoutEffect(() => {
     const unsubscribe = useChatStore.subscribe(

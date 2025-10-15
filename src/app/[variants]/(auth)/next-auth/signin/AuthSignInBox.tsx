@@ -1,7 +1,7 @@
 'use client';
 
 import { Button, Text } from '@lobehub/ui';
-import { LobeChat } from '@lobehub/ui/brand';
+import { ProductLogo } from '@/components/Branding';
 import { Col, Flex, Row, Skeleton } from 'antd';
 import { createStyles } from 'antd-style';
 import { AuthError } from 'next-auth';
@@ -114,9 +114,9 @@ export default memo(() => {
           <div className={styles.text}>
             <Text as={'h4'} className={styles.title}>
               <div>
-                <LobeChat size={48} />
+                <ProductLogo size={48} />
               </div>
-              {t('signIn.start.title', { applicationName: 'LobeChat' })}
+              {t('signIn.start.title', { applicationName: 'ImoogleAI' })}
             </Text>
             <Text as={'p'} className={styles.description}>
               {t('signIn.start.subtitle')}

@@ -2,7 +2,7 @@ import { isString } from 'lodash-es';
 import qs from 'query-string';
 import urlJoin from 'url-join';
 
-import { BRANDING_EMAIL, BRANDING_NAME, SOCIAL_URL } from '@/const/branding';
+import { BRANDING_EMAIL, BRANDING_NAME, ORG_NAME, SOCIAL_URL } from '@/const/branding';
 import { DEFAULT_LANG } from '@/const/locale';
 import { OFFICIAL_SITE, OFFICIAL_URL } from '@/const/url';
 import { Locales } from '@/locales/resources';
@@ -255,7 +255,7 @@ export class Ld {
         '@id': this.getId(fixedUrl, '#primaryimage'),
       },
       'inLanguage': locale,
-      'keywords': tags?.join(' ') || 'LobeHub LobeChat',
+      'keywords': tags?.join(' ') || `${ORG_NAME} ${BRANDING_NAME}`,
       'mainEntityOfPage': fixedUrl,
       'name': title,
       'publisher': {

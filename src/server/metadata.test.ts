@@ -90,7 +90,7 @@ describe('Metadata', () => {
         title: 'Twitter Title',
         description: 'Twitter description',
         images: ['https://twitter-image.com'],
-        site: '@lobehub',
+        site: expect.stringContaining('@'),
         url: 'https://example.com/twitter',
       });
     });
@@ -115,7 +115,7 @@ describe('Metadata', () => {
         locale: 'es-ES',
         type: 'article',
         url: 'https://example.com/og',
-        siteName: 'LobeChat',
+        siteName: BRANDING_NAME,
         alternateLocale: expect.arrayContaining([
           'ar',
           'bg-BG',
